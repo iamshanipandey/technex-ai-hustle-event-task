@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Technex Club - NIET</title>
+    <style>
+        /* Reset and basic styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        /* Navigation bar styling */
+        .navbar {
+            background-color: #1e3a8a;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            background-color: #3b82f6;
+        }
+        
+        /* Hero section styling */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        /* Main content styling */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            color: #1e3a8a;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background-color: #3b82f6;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Cards grid styling */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .card-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #3b82f6;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            color: white;
+        }
+        
+        .card h3 {
+            color: #1e3a8a;
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Team section styling */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .team-member {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .member-photo {
+            width: 120px;
+            height: 120px;
+            background-color: #e5e7eb;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: #9ca3af;
+        }
+        
+        .member-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #1e3a8a;
+            margin-bottom: 5px;
+        }
+        
+        .member-role {
+            color: #666;
+            font-style: italic;
+        }
+        
+        /* CTA section styling */
+        .cta-section {
+            background-color: #f3f4f6;
+            padding: 60px 20px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .cta-button {
+            background: linear-gradient(45deg, #3b82f6, #1e3a8a);
+            color: white;
+            padding: 18px 40px;
+            font-size: 20px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            margin: 10px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4);
+        }
+        
+        /* Footer styling */
+        .footer {
+            background-color: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">TECHNEX</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#events">Events</a></li>
+                <li><a href="#team">Team</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Technex Club</h1>
+        <p>Data Science Department | NIET</p>
+        <p>Innovating the Future with Technology & Data Science</p>
+    </section>
+    
+    <!-- Main Content -->
+    <div class="container">
+        <!-- About Section -->
+        <h2 class="section-title">What We Do</h2>
+        
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">🐍</div>
+                <h3>Python Programming</h3>
+                <p>Learn Python from basics to advanced level. Master data structures, algorithms, and real-world applications.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">📊</div>
+                <h3>Data Analysis</h3>
+                <p>Dive into data visualization, statistical analysis using pandas, numpy, and matplotlib libraries.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">🤖</div>
+                <h3>Machine Learning</h3>
+                <p>Explore AI and ML algorithms, build predictive models, and work on cutting-edge projects.</p>
+            </div>
+            
+            <div class="card">
+                <div class="card-icon">💡</div>
+                <h3>Tech Workshops</h3>
+                <p>Regular hands-on workshops on latest technologies, guest lectures, and industry interactions.</p>
+            </div>
+        </div>
+        
+        <!-- Team Section -->
+        <h2 class="section-title">Our Team</h2>
+        
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-photo">👨‍💻</div>
+                <div class="member-name">Club President</div>
+                <div class="member-role">Final Year Student</div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-photo">👩‍💻</div>
+                <div class="member-name">Technical Head</div>
+                <div class="member-role">Data Science Expert</div>
+            </div>
+            
+            <div class="team-member">
+                <div class="member-photo">👨‍🏫</div>
+                <div class="member-name">Faculty Coordinator</div>
+                <div class="member-role">Assistant Professor</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <h2>Ready to Join Technex?</h2>
+        <p>Be part of NIET's premier technical club and accelerate your tech journey!</p>
+        <a href="#" class="cta-button">Join Now</a>
+        <a href="#" class="cta-button">Learn More</a>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Technex Club - Data Science Department, NIET</p>
+            <p>Email: technex@niet.co.in | Follow us on Instagram & LinkedIn</p>
+        </div>
+    </footer>
+</body>
+</html>
